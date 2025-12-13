@@ -1,0 +1,20 @@
+.login-wrapper {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4361ee, #3f37c9);
+  padding: 1rem;
+}
+
+.login-card {
+  max-width: 420px;
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4361ee, #3f37c9);
+  border: none;
+}

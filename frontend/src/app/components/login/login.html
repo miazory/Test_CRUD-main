@@ -1,0 +1,27 @@
+<div class="login-wrapper">
+  <div class="card shadow login-card">
+    <div class="card-body">
+      <h3 class="text-center mb-3">Employee Portal</h3>
+      <p class="text-center text-muted mb-4">Silakan login untuk melanjutkan</p>
+      <form [formGroup]="form" (ngSubmit)="login()" novalidate>
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+          <input type="text" class="form-control" formControlName="username" />
+          <div class="text-danger small" *ngIf="form.controls.username.touched && form.controls.username.invalid">
+            Username wajib diisi.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password" />
+          <div class="text-danger small" *ngIf="form.controls.password.touched && form.controls.password.invalid">
+            Password wajib diisi.
+          </div>
+        </div>
+        <div class="text-danger mb-2" *ngIf="error">{{ error }}</div>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <p class="text-center text-muted small mt-3">Gunakan admin / admin123</p>
+      </form>
+    </div>
+  </div>
+</div>

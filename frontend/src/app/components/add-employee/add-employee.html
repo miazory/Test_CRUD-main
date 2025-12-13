@@ -1,0 +1,119 @@
+<div class="container py-4">
+  <div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Add Employee</h5>
+      <button class="btn btn-outline-secondary btn-sm" type="button" (click)="cancel()">
+        Back to List
+      </button>
+    </div>
+    <div class="card-body">
+      <form class="row g-3" [formGroup]="form" (ngSubmit)="save()" novalidate>
+        <div class="col-md-6">
+          <label class="form-label">Username</label>
+          <input type="text" class="form-control" formControlName="username" placeholder="e.g. user101" />
+          <div class="text-danger small" *ngIf="form.controls.username.touched && form.controls.username.invalid">
+            Username wajib diisi.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="email" placeholder="name@example.com" />
+          <div class="text-danger small" *ngIf="form.controls.email.touched && form.controls.email.invalid">
+            Email tidak valid.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-control" formControlName="firstName" placeholder="Nama depan" />
+          <div class="text-danger small" *ngIf="form.controls.firstName.touched && form.controls.firstName.invalid">
+            First name wajib diisi.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" formControlName="lastName" placeholder="Nama belakang" />
+          <div class="text-danger small" *ngIf="form.controls.lastName.touched && form.controls.lastName.invalid">
+            Last name wajib diisi.
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Birth Date &amp; Time</label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            formControlName="birthDate"
+            [max]="maxBirthDate"
+          />
+          <div class="text-danger small" *ngIf="form.controls.birthDate.touched && form.controls.birthDate.invalid">
+            Tanggal lahir wajib diisi dan tidak boleh melebihi hari ini.
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Basic Salary</label>
+          <input type="number" class="form-control" formControlName="basicSalary" placeholder="0" min="0" />
+          <div class="text-danger small" *ngIf="form.controls.basicSalary.touched && form.controls.basicSalary.invalid">
+            Basic salary harus berupa angka &gt;= 0.
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Status</label>
+          <select class="form-select" formControlName="status">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Group</label>
+          <div class="group-dropdown border rounded p-2">
+            <input
+              type="text"
+              class="form-control mb-2"
+              placeholder="Cari group..."
+              [(ngModel)]="groupSearch"
+              [ngModelOptions]="{ standalone: true }"
+              name="groupSearch"
+              autocomplete="off"
+            />
+            <div class="group-options">
+              <button
+                type="button"
+                class="btn btn-light w-100 text-start mb-1"
+                *ngFor="let option of filteredGroups()"
+                (click)="form.controls.group.setValue(option)"
+              >
+                {{ option }}
+              </button>
+              <div class="text-muted small" *ngIf="!filteredGroups().length">Group tidak ditemukan</div>
+            </div>
+          </div>
+          <div class="text-danger small" *ngIf="form.controls.group.touched && form.controls.group.invalid">
+            Group wajib dipilih.
+          </div>
+          <div class="mt-2 text-muted small" *ngIf="form.controls.group.value">
+            Dipilih: {{ form.controls.group.value }}
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" rows="4" formControlName="description"></textarea>
+          <div class="text-danger small" *ngIf="form.controls.description.touched && form.controls.description.invalid">
+            Description wajib diisi.
+          </div>
+        </div>
+
+        <div class="col-12 d-flex justify-content-end gap-2 pt-3">
+          <button type="button" class="btn btn-outline-secondary" (click)="cancel()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

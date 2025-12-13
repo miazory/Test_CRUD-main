@@ -1,0 +1,8 @@
+.main-shell {
+  min-height: calc(100vh - 56px);
+  background: #f4f6fb;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}

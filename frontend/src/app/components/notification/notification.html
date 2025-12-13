@@ -1,0 +1,16 @@
+<div class="notification-wrapper">
+  <div
+    *ngFor="let message of messages()"
+    class="alert alert-dismissible fade show"
+    [ngClass]="{
+      'alert-success': message.type === 'success',
+      'alert-warning': message.type === 'warning',
+      'alert-danger': message.type === 'danger',
+      'alert-info': message.type === 'info'
+    }"
+    role="alert"
+  >
+    {{ message.text }}
+    <button type="button" class="btn-close" aria-label="Close" (click)="dismiss(message.id)"></button>
+  </div>
+</div>

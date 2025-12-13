@@ -1,0 +1,98 @@
+<div class="container-fluid py-3">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h4 class="mb-1">Employee List</h4>
+      <p class="text-muted mb-0">Paging, sorting, searching (AND) dengan 100 dummy data.</p>
+    </div>
+    <button class="btn btn-primary" (click)="goToAdd()">Add Employee</button>
+  </div>
+
+  <div class="card shadow-sm mb-3">
+    <div class="card-body">
+      <div class="row g-2 align-items-end">
+        <div class="col-md-4">
+          <label class="form-label">Cari (username/nama/email)</label>
+          <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Ketik kata kunci" />
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Status</label>
+          <select class="form-select" [(ngModel)]="status">
+            <option value="">All</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Jumlah per halaman</label>
+          <select class="form-select" [ngModel]="state().pageSize" (ngModelChange)="changePageSize($event)">
+            <option [ngValue]="5">5</option>
+            <option [ngValue]="10">10</option>
+            <option [ngValue]="20">20</option>
+            <option [ngValue]="50">50</option>
+          </select>
+        </div>
+        <div class="col-md-2 d-flex gap-2">
+          <button class="btn btn-outline-secondary w-100" type="button" (click)="clearFilters()">Reset</button>
+          <button class="btn btn-primary w-100" type="button" (click)="applySearch()">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive shadow-sm">
+    <table class="table table-striped align-middle mb-0">
+      <thead class="table-primary">
+        <tr>
+          <th scope="col" (click)="sortBy('username')" class="sortable">Username</th>
+          <th scope="col" (click)="sortBy('firstName')" class="sortable">Nama</th>
+          <th scope="col" (click)="sortBy('email')" class="sortable">Email</th>
+          <th scope="col" (click)="sortBy('basicSalary')" class="sortable text-end">Basic Salary</th>
+          <th scope="col" (click)="sortBy('status')" class="sortable">Status</th>
+          <th scope="col" (click)="sortBy('group')" class="sortable">Group</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of view().pageItems; trackBy: trackById">
+          <td>{{ employee.username }}</td>
+          <td>
+            <a role="button" class="text-decoration-none" (click)="goToDetail(employee)">
+              {{ employee.firstName }} {{ employee.lastName }}
+            </a>
+          </td>
+          <td>{{ employee.email }}</td>
+          <td class="text-end">{{ employee.basicSalary | number:'1.0-0' }}</td>
+          <td>
+            <span class="badge" [ngClass]="employee.status === 'Active' ? 'bg-success' : 'bg-secondary'">
+              {{ employee.status }}
+            </span>
+          </td>
+          <td>{{ employee.group }}</td>
+          <td>
+            <div class="d-flex gap-1">
+              <button class="btn btn-warning btn-sm text-white" type="button" (click)="triggerEdit()">Edit</button>
+              <button class="btn btn-danger btn-sm" type="button" (click)="triggerDelete()">Delete</button>
+            </div>
+          </td>
+        </tr>
+        <tr *ngIf="!view().pageItems.length">
+          <td colspan="7" class="text-center text-muted py-4">Tidak ada data.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <div class="text-muted">
+      Halaman {{ currentPage }} dari {{ totalPages }} — Total {{ view().total }} data
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-outline-secondary" type="button" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
+        Prev
+      </button>
+      <button class="btn btn-outline-secondary" type="button" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">
+        Next
+      </button>
+    </div>
+  </div>
+</div>

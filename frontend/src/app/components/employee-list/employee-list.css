@@ -1,0 +1,12 @@
+.table thead th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.table thead th.sortable:hover {
+  text-decoration: underline;
+}
+
+.card-body .form-label {
+  font-weight: 600;
+}
