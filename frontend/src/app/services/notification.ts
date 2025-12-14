@@ -21,7 +21,6 @@ export class NotificationService {
     const message: NotificationMessage = { id, type, text };
     this.messagesSignal.update((current) => [...current, message]);
 
-    // Auto-dismiss after a few seconds.
     setTimeout(() => this.dismiss(id), 3500);
   }
 

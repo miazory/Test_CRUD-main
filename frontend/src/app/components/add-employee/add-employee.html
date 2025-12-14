@@ -42,12 +42,7 @@
 
         <div class="col-md-4">
           <label class="form-label">Birth Date &amp; Time</label>
-          <input
-            type="datetime-local"
-            class="form-control"
-            formControlName="birthDate"
-            [max]="maxBirthDate"
-          />
+          <input type="datetime-local" class="form-control" formControlName="birthDate" [max]="maxBirthDate" />
           <div class="text-danger small" *ngIf="form.controls.birthDate.touched && form.controls.birthDate.invalid">
             Tanggal lahir wajib diisi dan tidak boleh melebihi hari ini.
           </div>
@@ -72,22 +67,11 @@
         <div class="col-md-6">
           <label class="form-label">Group</label>
           <div class="group-dropdown border rounded p-2">
-            <input
-              type="text"
-              class="form-control mb-2"
-              placeholder="Cari group..."
-              [(ngModel)]="groupSearch"
-              [ngModelOptions]="{ standalone: true }"
-              name="groupSearch"
-              autocomplete="off"
-            />
+            <input type="text" class="form-control mb-2" placeholder="Cari group..." [(ngModel)]="groupSearch"
+              [ngModelOptions]="{ standalone: true }" name="groupSearch" autocomplete="off" />
             <div class="group-options">
-              <button
-                type="button"
-                class="btn btn-light w-100 text-start mb-1"
-                *ngFor="let option of filteredGroups()"
-                (click)="form.controls.group.setValue(option)"
-              >
+              <button type="button" class="btn btn-light w-100 text-start mb-1" *ngFor="let option of filteredGroups()"
+                (click)="form.controls.group.setValue(option)">
                 {{ option }}
               </button>
               <div class="text-muted small" *ngIf="!filteredGroups().length">Group tidak ditemukan</div>

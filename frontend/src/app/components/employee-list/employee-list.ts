@@ -69,11 +69,4 @@ export class EmployeeListComponent {
     this.router.navigate(['/employees', employee.id]);
   }
 
-  triggerEdit(): void {
-    this.notificationService.push('warning', 'Edit diklik (dummy).');
-  }
-
-  triggerDelete(): void {
-    this.notificationService.push('danger', 'Delete diklik (dummy).');
-  }
 }

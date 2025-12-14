@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-between align-items-center mb-3">
     <div>
       <h4 class="mb-1">Employee List</h4>
-      <p class="text-muted mb-0">Paging, sorting, searching (AND) dengan 100 dummy data.</p>
+      
     </div>
     <button class="btn btn-primary" (click)="goToAdd()">Add Employee</button>
   </div>
@@ -11,7 +11,7 @@
     <div class="card-body">
       <div class="row g-2 align-items-end">
         <div class="col-md-4">
-          <label class="form-label">Cari (username/nama/email)</label>
+          <label class="form-label">Cari</label>
           <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Ketik kata kunci" />
         </div>
         <div class="col-md-3">
@@ -70,8 +70,8 @@
           <td>{{ employee.group }}</td>
           <td>
             <div class="d-flex gap-1">
-              <button class="btn btn-warning btn-sm text-white" type="button" (click)="triggerEdit()">Edit</button>
-              <button class="btn btn-danger btn-sm" type="button" (click)="triggerDelete()">Delete</button>
+              <button class="btn btn-warning btn-sm text-white" type="button">Edit</button>
+              <button class="btn btn-danger btn-sm" type="button">Delete</button>
             </div>
           </td>
         </tr>

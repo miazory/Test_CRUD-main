@@ -1,7 +1,5 @@
-/* src/styles.css */
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-/* Custom Variables */
 :root {
   --primary-color: #4361ee;
   --secondary-color: #3f37c9;
@@ -16,7 +14,6 @@
   --transition: all 0.3s ease;
 }
 
-/* Base Styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -24,7 +21,6 @@ body {
   color: var(--dark-text);
 }
 
-/* Desktop Specific Styles */
 @media (min-width: 768px) {
   .main-container {
     padding: 2rem;
@@ -58,7 +54,6 @@ body {
   }
 }
 
-/* Mobile Specific Styles */
 @media (max-width: 767px) {
   .main-container {
     padding: 1rem;
@@ -88,7 +83,6 @@ body {
   }
 }
 
-/* Custom Card Styles */
 .custom-card {
   border: none;
   border-radius: var(--border-radius);
@@ -97,13 +91,11 @@ body {
 }
 
 .custom-card .card-header {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
   border: none;
   padding: 1.5rem;
 }
 
-/* Custom Button Styles */
 .btn-primary-custom {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   border: none;
@@ -146,7 +138,6 @@ body {
   font-weight: 500;
 }
 
-/* Custom Form Styles */
 .form-control-custom {
   border: 2px solid #e9ecef;
   border-radius: 10px;
@@ -159,7 +150,6 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(67, 97, 238, 0.25);
 }
 
-/* Custom Table Styles */
 .table-custom {
   background: white;
   border-radius: var(--border-radius);
@@ -176,7 +166,6 @@ body {
   background-color: rgba(67, 97, 238, 0.05);
 }
 
-/* Status Badge Styles */
 .status-badge {
   padding: 5px 12px;
   border-radius: 20px;
@@ -194,7 +183,6 @@ body {
   color: #721c24;
 }
 
-/* Loading Spinner */
 .loading-spinner {
   display: flex;
   justify-content: center;
@@ -202,7 +190,6 @@ body {
   height: 200px;
 }
 
-/* Animation Classes */
 .fade-in {
   animation: fadeIn 0.5s ease-in;
 }
@@ -221,7 +208,6 @@ body {
   to { transform: translateX(0); }
 }
 
-/* Responsive Utilities */
 @media (max-width: 576px) {
   .mobile-stack {
     flex-direction: column !important;

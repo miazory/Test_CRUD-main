@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #4361ee, #3f37c9);
+  background: linear-gradient(135deg, #d0d8ff, #d0d8ff);
   padding: 1rem;
 }
 
@@ -15,6 +15,6 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #4361ee, #3f37c9);
+  background: linear-gradient(135deg, #d0d8ff, #d0d8ff);
   border: none;
 }

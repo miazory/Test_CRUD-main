@@ -87,6 +87,16 @@ export class EmployeeService {
     return employee;
   }
 
+  updateEmployee(updatedEmployee: Employee): void {
+    this.employeesSignal.update((list) =>
+      list.map((e) => (e.id === updatedEmployee.id ? updatedEmployee : e))
+    );
+  }
+
+  deleteEmployee(id: number): void {
+    this.employeesSignal.update((list) => list.filter((e) => e.id !== id));
+  }
+
   setSearchTerm(term: string): void {
     this.stateSignal.update((s) => ({ ...s, searchTerm: term, page: 1 }));
   }
@@ -135,7 +145,7 @@ export class EmployeeService {
   private buildDummyEmployees(): Employee[] {
     const statuses: Array<'Active' | 'Inactive'> = ['Active', 'Inactive'];
     const result: Employee[] = [];
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 1; i <= 1000; i++) {
       const group = this.groups[i % this.groups.length];
       const status = statuses[i % 2];
       result.push({
@@ -145,7 +155,7 @@ export class EmployeeService {
         lastName: `Last${i}`,
         email: `user${i}@example.com`,
         birthDate: new Date(1990, (i % 12), (i % 28) + 1).toISOString(),
-        basicSalary: 3000000 + i * 10000,
+        basicSalary: 5000000 + i * 10000,
         status,
         group,
         description: `Employee number ${i} in ${group} group.`,

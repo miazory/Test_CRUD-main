@@ -45,7 +45,7 @@ export class LoginComponent {
       const redirect = this.route.snapshot.queryParamMap.get('redirect');
       this.router.navigate([redirect || '/employees']);
     } else {
-      this.error = 'Username atau password salah (gunakan admin / admin123).';
+      this.error = 'Username atau password salah.';
       this.notificationService.push('danger', this.error);
     }
   }

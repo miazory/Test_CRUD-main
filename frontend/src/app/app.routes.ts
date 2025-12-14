@@ -10,6 +10,7 @@ export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'employees' },
   { path: 'employees', component: EmployeeListComponent, canActivate: [authGuard] },
   { path: 'employees/add', component: AddEmployeeComponent, canActivate: [authGuard] },
+  { path: 'employees/edit/:id', component: AddEmployeeComponent, canActivate: [authGuard] },
   { path: 'employees/:id', component: EmployeeDetailComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: 'employees' },
 ];
