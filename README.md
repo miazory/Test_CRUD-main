@@ -1,2 +1,10 @@
-# Test_CRUD
-Testing CRUD
+# Frontend
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+
+
+```bash
+ng serve
+```
+
+server code running in  `http://localhost:4200/`. 
