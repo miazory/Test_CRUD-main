@@ -9,11 +9,12 @@ Running inside Frontend
 cd frontend
 ```
 
-Install
+Install node
 ```bash
 NPM install
 ```
 
+Running
 ```bash
 ng serve
 ```
